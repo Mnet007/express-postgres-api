@@ -1,12 +1,17 @@
 import express from 'express';
-import usersRouter from './routes/users.js';
+import dotenv from 'dotenv';
+import usersRoutes from './routes/users.js';
+
+dotenv.config();
 
 const app = express();
-const PORT = 5000;
-
 app.use(express.json());
-app.use('/users', usersRouter);
 
-app.get('/', (req, res) => res.send('Welcome to the PostgreSQL API'));
+app.get('/', (req, res) => {
+  res.send('Welcome to the Express + PostgreSQL API');
+});
 
-app.listen(PORT, () => console.log(`Server is running at http://localhost:${PORT}`));
+app.use('/users', usersRoutes);
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

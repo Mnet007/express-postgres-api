@@ -24,6 +24,14 @@ This is a simple RESTful API built with **Express.js** and **PostgreSQL**. It al
 ---
 
 ## 📁 Project Structure
+express-postgres-api/
+├── controllers/       → Controller logic
+├── routes/            → Route handlers
+├── db.js              → PostgreSQL connection
+├── .env               → Environment variables
+├── index.js           → App entry point
+├── package.json
+└── README.md
 
 
 ---
@@ -49,48 +57,23 @@ CREATE TABLE users (
     age INTEGER
 );
 
-export const pool = new Pool({
-    user: 'your_postgres_username',
-    host: 'localhost',
-    database: 'express_api_db',
-    password: 'your_postgres_password',
-    port: 5432,
-});
+PG_HOST=localhost
+PG_PORT=5432
+PG_USER=your_username
+PG_PASSWORD=your_password
+PG_DATABASE=your_database
+PORT=5000
+
 
 npm start
 
-GET http://localhost:5000/users
-
-[
-  {
-    "id": 1,
-    "name": "John Doe",
-    "email": "john@example.com",
-    "age": 30
-  }
-]
-
-GET http://localhost:5000/users/1
-
-POST http://localhost:5000/users
-Content-Type: application/json
-
-{
-  "name": "Alice",
-  "email": "alice@example.com",
-  "age": 25
-}
-
-PUT http://localhost:5000/users/1
-Content-Type: application/json
-
-{
-  "name": "Alice B",
-  "email": "aliceb@example.com",
-  "age": 26
-}
-
-DELETE http://localhost:5000/users/1
+| Method | Endpoint     | Description       |
+| ------ | ------------ | ----------------- |
+| GET    | `/users`     | Get all users     |
+| GET    | `/users/:id` | Get user by ID    |
+| POST   | `/users`     | Create new user   |
+| PUT    | `/users/:id` | Update user by ID |
+| DELETE | `/users/:id` | Delete user by ID |
 
 
 
