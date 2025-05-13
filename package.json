@@ -1,9 +1,8 @@
 {
   "name": "express-postgres-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a simple RESTful API built with **Express.js** and **PostgreSQL**. It allows you to perform basic CRUD (Create, Read, Update, Delete) operations on a `users` table.",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"
@@ -14,7 +13,7 @@
   "dependencies": {
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "pg": "^8.15.6"
+    "pg": "^8.16.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
